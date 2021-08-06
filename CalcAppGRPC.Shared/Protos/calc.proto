@@ -5,13 +5,17 @@ option csharp_namespace = "CalcAppGRPC.Shared";
 package calc;
 
 service Calc {
-  rpc Execute (CalcRequest) returns (CalcResponse);
+  rpc Addition (CalcRequest) returns (CalcResponse);
+  rpc Division (CalcRequest) returns (CalcResponse);
+  rpc Multiplication (CalcRequest) returns (CalcResponse);
+  rpc Subtraction (CalcRequest) returns (CalcResponse);
 }
 
 message CalcRequest{
-  string value = 1;
+  double value1 = 1;
+  double value2 = 2;
 }
 
 message CalcResponse{
-  string result = 1;
+  double result = 1;
 }
