@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcAppGRPC.Client", "CalcA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcAppGRPC.Shared", "CalcAppGRPC.Shared\CalcAppGRPC.Shared.csproj", "{D085EAF8-74B6-45F7-BB1D-5B8814AAB8A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcAppGRPC.ServerConsole", "CalcAppGRPC.Server.Console\CalcAppGRPC.ServerConsole.csproj", "{ED09B3F3-6E10-477C-AD28-E4394BA35B5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcAppGRPC.Server.Console", "CalcAppGRPC.Server.Console\CalcAppGRPC.Server.Console.csproj", "{ED09B3F3-6E10-477C-AD28-E4394BA35B5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcAppGRPC.Services", "CalcAppGRPC.Services\CalcAppGRPC.Services.csproj", "{A9682757-B175-44D3-8DC0-8EADAF14673E}"
 EndProject
