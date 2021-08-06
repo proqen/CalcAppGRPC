@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CalcAppGRPC.Client";
+
+package calc;
+
+service Calc {
+  rpc Execute (CalcRequest) returns (CalcResponse);
+}
+
+message CalcRequest{
+  string value = 1;
+}
+
+message CalcResponse{
+  string result = 1;
+}
