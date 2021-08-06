@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using CalcAppGRPC.Shared;
 using Grpc.Net.Client;
 
 namespace CalcAppGRPC.Client

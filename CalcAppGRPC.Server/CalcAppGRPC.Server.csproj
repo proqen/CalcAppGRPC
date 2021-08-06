@@ -3,13 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
+	
   <ItemGroup>
-	  <Protobuf Include="Protos\calc.proto" GrpcServices="Server" />
+	<Protobuf Include="..\CalcAppGRPC.Shared\Protos\calc.proto" GrpcServices="Server" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
   </ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+    <ProjectReference Include="..\CalcAppGRPC.Shared\CalcAppGRPC.Shared.csproj" />
   </ItemGroup>
 
 </Project>
