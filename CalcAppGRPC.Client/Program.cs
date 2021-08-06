@@ -10,7 +10,12 @@ namespace CalcAppGRPC.Client
     {
         static async Task Main(string[] args)
         {
-            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            AppContext.SetSwitch(
+            "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true); //for CalcAppGRPC.ServerConsole
+
+            //var channel = GrpcChannel.ForAddress("https://localhost:5001"); //for CalcAppGRPC.Server
+            var channel = GrpcChannel.ForAddress("http://localhost:50051"); //for CalcAppGRPC.ServerConsole
+
             var calcClient = new Calc.CalcClient(channel);
             while (true)
             {
@@ -38,14 +43,16 @@ namespace CalcAppGRPC.Client
             if (double.Parse(par[1]) == 0) return "Делить на ноль нельзя!";
 
             var request = new CalcRequest { Value1 = double.Parse(par[0]), Value2 = double.Parse(par[1]) };
-            return calcOperation switch
+            var response = calcOperation switch
             {
-                CalcOperation.Addition => (await calcClient.AdditionAsync(request)).Result.ToString(),
-                CalcOperation.Subtraction => (await calcClient.SubtractionAsync(request)).Result.ToString(),
-                CalcOperation.Multiplication => (await calcClient.MultiplicationAsync(request)).Result.ToString(),
-                CalcOperation.Division => (await calcClient.DivisionAsync(request)).Result.ToString(),
-                _ => "Error"
+                CalcOperation.Addition => (await calcClient.AdditionAsync(request)),
+                CalcOperation.Subtraction => (await calcClient.SubtractionAsync(request)),
+                CalcOperation.Multiplication => (await calcClient.MultiplicationAsync(request)),
+                CalcOperation.Division => (await calcClient.DivisionAsync(request)),
+                _ => new CalcResponse { Result = 0, StatusCode = (int)StatusCode.Error, StatusMessage = "Error" }
             };
+
+            return response.StatusCode == (int)StatusCode.Ok ? response.Result.ToString() : response.StatusMessage;
         }
     }
 }

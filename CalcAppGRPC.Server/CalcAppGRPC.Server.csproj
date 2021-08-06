@@ -5,12 +5,11 @@
   </PropertyGroup>
 	
   <ItemGroup>
-	<Protobuf Include="..\CalcAppGRPC.Shared\Protos\calc.proto" GrpcServices="Server" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
   </ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\CalcAppGRPC.Shared\CalcAppGRPC.Shared.csproj" />
+    <ProjectReference Include="..\CalcAppGRPC.Services\CalcAppGRPC.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿using CalcAppGRPC.Server.Services;
+﻿using CalcAppGRPC.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
